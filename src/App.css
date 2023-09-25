@@ -112,6 +112,7 @@ button{
   font-size: 1.5rem;
   font-weight: 600;
   color: #2a9d8f;
+  cursor: pointer;
 }
 
 .error-message{
