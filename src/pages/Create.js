@@ -1,9 +1,9 @@
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css'
-function Write() {
+function Create() {
     return (
         <div classname='Write'>
-            <h1>Write</h1>
+            <h1>Create Blog</h1>
             <form classname='WriteForm'>
                 <input type="text" placeholder="Title"  autoFocus='true'/>
                 <input type="text" placeholder="Subject" />
@@ -15,4 +15,4 @@ function Write() {
         </div>
     )
 }
-export default Write;
+export default Create;

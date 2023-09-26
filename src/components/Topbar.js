@@ -1,12 +1,12 @@
+import { Link } from 'react-router-dom'
 function Topbar() {
+  const user = true;
   return (
     <div className="top">
       <ul className='list'>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-        <li>Write</li>
-        <li>Logout</li>
+        <Link to={'/'}>Home</Link>
+        {user&&<Link to={'/create'}>Create</Link>}
+        {user ? (<Link>Logout</Link>):(<Link to={'/auth'}>Login/Signup</Link>)}
       </ul>
     </div>
   )

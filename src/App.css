@@ -17,7 +17,6 @@ h1{
   width: 100%;
   height: 50px;
   background-color: #264653;
-  color: #e9c46a;
   position: sticky;
   top: 0;
 }
@@ -26,7 +25,8 @@ h1{
   justify-content: space-around;
   align-items: center;
 }
-.list li{
+.list a{
+  color: #e9c46a;
   text-decoration: none;
   list-style-type: none;
   font-weight: 700;
@@ -34,7 +34,7 @@ h1{
   cursor: pointer;
   margin: 10px;
 }
-.list li:hover{
+.list a:hover{
   font-size: 1.3rem
 }
 /* //Post */
