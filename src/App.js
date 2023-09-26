@@ -7,7 +7,7 @@ import Auth from './pages/Auth';
 import './App.css';
 
 function App() {
-  const user = false;
+  
   return (
     <div className="App">
       <Topbar/>

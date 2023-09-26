@@ -1,17 +1,23 @@
 import { format } from "date-fns"
+import { Link } from 'react-router-dom'
 
-function Post({post}) {
+function Post({ post }) {
   return (
-     <div className='singlePost'>
-                <div className='image'>
-                    <img src='https://media.zenfs.com/en/nerdist_761/b8be763e8478b9674293cdb86844a4f6' alt='pic' />
-                </div>
-                <div className="texts">
-                    <h2>Avatar: The Last Airbender: Quest for Balance</h2>
-                    <p className='info'>
-                    <a className='author'>{post.username}</a>-<time>Created{format(new Date(post.createdAt), 'MMM-d-yyyy hh:mm a')}</time>
-                    </p>
-                </div>
+    <div className='singlePost'>
+      const location = useLocation()
+      <div className='image'>
+        {post.photo && (
+          <img src={post.photo} alt='pic' />
+
+        )}
+      </div>
+      <div className="texts">
+        <Link to={`/posts/${post._id}`}>
+          <h2>{post.title}</h2>
+        </Link>
+        <p className='info'>{post.description}</p>
+        <a className='author'>{post.username}</a>-<time>Created{format(new Date(post.createdAt), 'MMM-d-yyyy hh:mm a')}</time>
+      </div>
     </div>
   )
 }

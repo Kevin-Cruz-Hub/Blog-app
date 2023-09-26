@@ -1,20 +1,38 @@
+import axios from 'axios'
+import { format } from "date-fns"
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+
 function SinglePost() {
+  const location = useLocation()
+  const path = console.log(location.pathname.split('/')[2])
+  const [post, setPost] = useState({})
+
+  useEffect(() => {
+    const getPost = async () => {
+      const res = await axios.get(`/post/${path}`)
+      setPost(res.data)
+    }
+    getPost()
+  }, [])
   return (
-    <div classname = 'singlePost'>
+    <div classname='singlePost'>
       <h2>Single Post</h2>
       <div classname='singlepostWrapper'>
-      <div className='image'>
-                    <img src='https://media.zenfs.com/en/nerdist_761/b8be763e8478b9674293cdb86844a4f6' alt='pic' />
-                </div>
-                <div className="texts">
-                    <h2>Avatar: The Last Airbender: Quest for Balance</h2>
-                    <p className='summary'>Avatar: The Last Airbender – Quest for Balance is an upcoming video game based on Avatar: The Last Airbender, to be published by GameMill Entertainment and set to be released on September 22, 2023. Unlike the previous games which were set in the series, this one is an original game.</p>
-                    <p className='info'>
-                        <a href='/' className='author'>Kevin Cruz</a>-<time>09-19-2023</time>
-                    </p>
-                    <button className='icon'>Update &#9998;</button>
-                    <button className='icon'>Delete &#128465;</button>
-                </div>
+        {post.photo && (
+          <div className='image'>
+            <img src={post.photo} alt='pic' />
+          </div>
+        )}
+        <div className="texts">
+          <h2>{post.title}</h2>
+          <p className='summary'>{post.description}</p>
+          <p className='info'>
+            <a href='/' className='author'>{post.username}</a>-<time>Created{format(new Date(post.createdAt), 'MMM-d-yyyy hh:mm a')}</time>
+          </p>
+          <button className='icon'>Update &#9998;</button>
+          <button className='icon'>Delete &#128465;</button>
+        </div>
       </div>
     </div>
   )
