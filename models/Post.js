@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose
 
 const PostSchema = Schema({
-    title:{type:String, required:true, unique},
+    title:{type:String, required:true, unique:true},
     description:{type:String, required:true},
     photos:{type:String, required: false},
     username:{type:String, required: true}

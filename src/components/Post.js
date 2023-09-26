@@ -1,4 +1,6 @@
-function Post() {
+import { format } from "date-fns"
+
+function Post({post}) {
   return (
      <div className='singlePost'>
                 <div className='image'>
@@ -7,8 +9,7 @@ function Post() {
                 <div className="texts">
                     <h2>Avatar: The Last Airbender: Quest for Balance</h2>
                     <p className='info'>
-                        <a href='/' className='author'>Kevin Cruz</a>-
-                        <time>09-19-2023</time>
+                    <a className='author'>{post.username}</a>-<time>Created{format(new Date(post.createdAt), 'MMM-d-yyyy hh:mm a')}</time>
                     </p>
                 </div>
     </div>
