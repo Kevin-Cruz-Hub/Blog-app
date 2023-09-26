@@ -17,6 +17,7 @@ export default function SignupPage() {
         password, 
         email,
       })
+      res.data&&window.location.replace('/login')
       setRedirect(true)
     }
     catch(err){
@@ -24,10 +25,7 @@ export default function SignupPage() {
       setError('Signup Failed')
     }
   }
-
-  if (redirect) {
-    return <Navigate to={'/'} />
-  }
+  
 
   return (
     <div className="">
